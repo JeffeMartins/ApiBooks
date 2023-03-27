@@ -1,7 +1,7 @@
-import {IDatabaseConfig} from "@/interfaces/database/IDatabaseConnection";
+import { IDatabaseConfig } from '@/interfaces/database/IDatabaseConnection';
 
 export const configMongo: IDatabaseConfig = {
-    databaseName: 'bookStore',
-    username: "admin",
-    password: "admin",
+  databaseName: 'bookStore',
+  username: 'admin',
+  password: 'admin',
 };

@@ -1,11 +1,9 @@
 interface ConfigTypes {
-    secret: string,
-
+  secret: string;
 }
-
 
 const config: ConfigTypes = {
-    secret: 'amVzdXMgcG9kZSB0ZSBzYWx2YXI=',
-}
+  secret: 'amVzdXMgcG9kZSB0ZSBzYWx2YXI=',
+};
 
-export default config
+export default config;

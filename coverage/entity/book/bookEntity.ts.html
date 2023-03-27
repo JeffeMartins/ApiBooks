@@ -141,7 +141,8 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -219,92 +220,94 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import {PrismaClient} from '@prisma/client';
-import {IBook} from "./../../interfaces/book/IBook";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { PrismaClient } from '@prisma/client';
+import { IBook } from './../../interfaces/book/IBook';
 &nbsp;
 class BookEntity {
-    public prismaClient = new PrismaClient();
+  public prismaClient = new PrismaClient();
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async create(data: IBook) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.createMany({data: data});</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async create(data: IBook) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.createMany({ data: data });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async getAllBook() {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.findMany();</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async getAllBook() {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.findMany();</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async getBookById(id: string) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.findUnique({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: id</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async getBookById(id: string) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.findUnique({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        id: id,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async searchBookByTitle(title: string) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.findMany({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                title: {</span>
-<span class="cstat-no" title="statement not covered" >                    contains: title</span>
-<span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async searchBookByTitle(title: string) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.findMany({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        title: {</span>
+<span class="cstat-no" title="statement not covered" >          contains: title,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async searchBookByAuthor(author: string) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.findMany({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                author: {</span>
-<span class="cstat-no" title="statement not covered" >                    contains: author</span>
-<span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async searchBookByAuthor(author: string) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.findMany({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        author: {</span>
+<span class="cstat-no" title="statement not covered" >          contains: author,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async getRentedBook(rented: boolean) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.findMany({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                isRented: rented</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async getRentedBook(rented: boolean) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.findMany({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        isRented: rented,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async updateBookById(id: string, data: object) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.update({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: id</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >            data: data,</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async updateBookById(id: string, data: object) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.update({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        id: id,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      data: data,</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async deleteBookById(id: string) {</span>
-<span class="cstat-no" title="statement not covered" >        await this.prismaClient.book.delete({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: id</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >        return true;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async deleteBookById(id: string) {</span>
+<span class="cstat-no" title="statement not covered" >    await this.prismaClient.book.delete({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        id: id,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public async rentedBookById(id: string, data: object) {</span>
-<span class="cstat-no" title="statement not covered" >        return await this.prismaClient.book.update({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: id</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
-<span class="cstat-no" title="statement not covered" >            data: data,</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >  public async rentedBookById(id: string, data: object) {</span>
+<span class="cstat-no" title="statement not covered" >    return await this.prismaClient.book.update({</span>
+<span class="cstat-no" title="statement not covered" >      where: {</span>
+<span class="cstat-no" title="statement not covered" >        id: id,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      data: data,</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 }
 &nbsp;
-export default new BookEntity();</pre></td></tr></table></pre>
+export default new BookEntity();
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-26T06:34:30.632Z
+                at 2023-03-27T17:23:46.954Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
