@@ -6,7 +6,7 @@ class BookService {
   public responseFactory = new ResponseUserFactory();
 
   public async create(data: IBook) {
-    const response = await BookEntity.create(data)
+    const response = await BookEntity.create(data);
     return this.responseFactory.responseUser('success', 'Book created successfully', 201, response);
   }
 
@@ -16,7 +16,7 @@ class BookService {
   }
 
   public async getBookById(id: string) {
-    const response = await BookEntity.getBookById(id)
+    const response = await BookEntity.getBookById(id);
 
     if (!response) return this.responseFactory.responseUser('Error', 'ID not found', 404, response);
     return this.responseFactory.responseUser('success', 'OK', 200, response);
@@ -25,8 +25,6 @@ class BookService {
   public async searchBookByTitle(title: string) {
     const response = await BookEntity.searchBookByTitle(title);
     if (response.length === 0)
-
-
       return this.responseFactory.responseUser('Error', 'Title not found', 404, response);
     return this.responseFactory.responseUser('success', 'OK', 200, response);
   }
