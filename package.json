@@ -6,7 +6,8 @@
   "scripts": {
     "test": "vitest --coverage",
     "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prepare": "husky install"
   },
   "format": "prettier --write \"**/*.ts\"",
   "husky": {
