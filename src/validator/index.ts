@@ -18,7 +18,6 @@ export const schemaDataUpdateBook = yup.object().shape({
     })
 });
 
-
 export const schemaIdBook = yup.string().matches(/^[0-9a-fA-F]{24}$/, 'ID inválido');
 
 export const validateData = (schema: any) => async (req: Request, res: Response, next: NextFunction) => {
