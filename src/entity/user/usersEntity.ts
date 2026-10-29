@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../config/database/client';
 import { IUser } from './../../interfaces/user/IUser';
 
 class UsersEntity {
-  public prismaClient = new PrismaClient();
+  public prismaClient = prisma;
 
   public async create(data: IUser) {
     return await this.prismaClient.user.create({ data: data });

@@ -4,9 +4,9 @@ import { ILogin } from '../../interfaces/login/ILogin';
 
 class AuthService {
   public async authenticate(data: ILogin) {
-    const { email, password } = data;
+    const { email } = data;
 
-    const token = jwt.sign({ user: email, password }, authConfig.secret, {
+    const token = jwt.sign({ sub: email }, authConfig.secret, {
       expiresIn: 86400,
     });
 

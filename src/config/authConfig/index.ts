@@ -1,9 +1,2 @@
-interface ConfigTypes {
-  secret: string;
-}
-
-const config: ConfigTypes = {
-  secret: 'amVzdXMgcG9kZSB0ZSBzYWx2YXI=',
-};
-
-export default config;
+import 'dotenv/config';
+export default {get secret():string {const value=process.env.JWT_SECRET;if(!value || value.length<32)throw new Error('Configure JWT_SECRET with at least 32 characters');return value;}};

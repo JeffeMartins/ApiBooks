@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../config/database/client';
 import { ILogin } from './../../interfaces/login/ILogin';
 
 class UsersEntity {
-  public prismaClient = new PrismaClient();
+  public prismaClient = prisma;
 
   public async login(data: ILogin) {
     return await this.prismaClient.user.findUnique({

@@ -6,7 +6,7 @@ class ResponseUserFactory {
       statusCode: statusCode,
       status: status,
       message: message,
-      data: data,
+      data: data == null ? null : JSON.parse(JSON.stringify(data,(key,value)=>key === 'password' ? undefined : value)),
     };
     return response;
   }
