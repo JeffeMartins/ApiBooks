@@ -44,7 +44,7 @@
     "compression": "^1.8.1",
     "express": "4.22.3",
     "uuid": "^11.1.0",
-    "@prisma/client": "6.19.3",
+    "@prisma/client": "7.10.1",
     "yup": "^1.7.1"
   },
   "overrides": {
