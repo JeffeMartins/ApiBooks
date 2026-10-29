@@ -1,3 +1,4 @@
+import { compare } from 'bcryptjs';
 import { ILogin } from './../../interfaces/login/ILogin';
 import LoginEntity from './../../entity/login/LoginEntity';
 import ResponseUserFactory from '../../factorys/user/response/responseUserFactory';
@@ -20,7 +21,7 @@ class LoginService {
       return { statusCode: 401, status: 'Unauthorized', message: 'User already exists' };
     }
 
-    if (isExistsUser.password !== user.password)
+    if (!(await compare(user.password, isExistsUser.password)))
       return {
         statusCode: 401,
         status: 'Unauthorized',

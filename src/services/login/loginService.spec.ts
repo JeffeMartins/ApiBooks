@@ -1,3 +1,4 @@
+import {hashSync} from 'bcryptjs';
 import { describe, expect, it, vi } from 'vitest';
 import LoginSevice from './loginService';
 import LoginEntity from './../../entity/login/LoginEntity';
@@ -16,12 +17,12 @@ describe('Testing login Book', () => {
       statusCode: 200,
       status: 'success',
       token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiamVmZmVyc29uQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjc5ODA1MTEwLCJleHAiOjE2Nzk4OTE1MTB9.C59x6nPUULa4xH2JSmgu80ze_-YxCczP4GSmsAirX9s',
+        'test-token',
       expiresIn: 86400,
       type: 'jwt',
     };
 
-    createBookentity.mockResolvedValue(request);
+    createBookentity.mockResolvedValue({...request,password:hashSync(request.password,10)});
     authenticate.mockResolvedValue(mockAuth);
 
     const response = await LoginSevice.login(request);
@@ -54,7 +55,7 @@ describe('Testing login Book', () => {
       statusCode: 200,
       status: 'success',
       token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiamVmZmVyc29uQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjc5ODA1MTEwLCJleHAiOjE2Nzk4OTE1MTB9.C59x6nPUULa4xH2JSmgu80ze_-YxCczP4GSmsAirX9s',
+        'test-token',
       expiresIn: 86400,
       type: 'jwt',
     };

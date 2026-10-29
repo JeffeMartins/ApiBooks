@@ -1,3 +1,4 @@
+import { hash } from 'bcryptjs';
 import { IUser } from './../../interfaces/user/IUser';
 import UsersEntity from './../../entity/user/usersEntity';
 import ResponseFactoryUser from './../../factorys/user/response/responseUserFactory';
@@ -8,7 +9,7 @@ class UserService {
   public async create(user: IUser) {
     const isExistsUser = await UsersEntity.find(user.email);
     if (!isExistsUser) {
-      await UsersEntity.create(user);
+      await UsersEntity.create({...user, password: await hash(user.password, 12)});
       return this.responseFactoryUser.responseUser(
         'success',
         'User created successfully',
@@ -29,6 +30,7 @@ class UserService {
     if (isExistsUser) {
       const dataUpdate = {
         ...user,
+        ...(user.password ? {password:await hash(user.password,12)} : {}),
         updatedAt: new Date(),
       };
       await UsersEntity.update(user, dataUpdate);

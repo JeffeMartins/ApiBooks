@@ -14,7 +14,7 @@ class App {
   }
 
   private config(): void {
-    this.app.use(express.json());
+    this.app.disable('x-powered-by');this.app.use(express.json({limit:'64kb'}));this.app.get('/health',(_req,res)=>res.json({status:'UP'}));
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cors());
     this.app.use(helmet());

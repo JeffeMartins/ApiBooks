@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../config/database/client';
 import { IBook } from './../../interfaces/book/IBook';
 
 class BookEntity {
-  public prismaClient = new PrismaClient();
+  public prismaClient = prisma;
 
   public async create(data: IBook) {
     return await this.prismaClient.book.createMany({ data: data });
